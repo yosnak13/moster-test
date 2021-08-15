@@ -1,2 +1,6 @@
 <h1>Characters#index</h1>
-<p>Find me in app/views/characters/index.html.erb</p>
+<% @characters.each do |f| %>
+  <p>キャラ名：<%= f.character_name%></p>
+  <p>キャラタイプ：<%= f.character_type %></p>
+  <p>レベル：<%= f.character_level %></p>
+<% end %>
