@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  character_name: MyString
+  character_type: 1
+  character_level: 1
+  character_exp: 1
+  user_id: one
+
+two:
+  character_name: MyString
+  character_type: 1
+  character_level: 1
+  character_exp: 1
+  user_id: two
