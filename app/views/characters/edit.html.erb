@@ -1,0 +1,5 @@
+<h1>学習時間を記入しよう</h1>
+<%= form_with(model: @character, local: true) do |f| %>
+  <%= f.number_field :character_exp %>
+  <%= f.submit %>
+<% end %>
