@@ -2,5 +2,6 @@
 <p>現在の経験値：<%= @character.character_exp %></p>
 <%= form_with(model: @character, local: true) do |f| %>
   <%= f.number_field :character_exp %>
+  <%= f.hidden_field :character_exp, value: @character.character_exp %>
   <%= f.submit %>
 <% end %>
