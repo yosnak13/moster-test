@@ -16,11 +16,9 @@ class CharactersController < ApplicationController
 
   def update
     @current_exp = @character.character_exp
-    # @current_exp + post_params[:character_exp].to_i #だめ
     if @character.update(post_params)
       @character.increment(:character_exp, @current_exp)
       @character.save
-      # binding.pry
       redirect_to character_path
     else
       redirect_to edit_character_path
