@@ -31,3 +31,14 @@ Character.create!(
     }
   ]
 )
+
+# LevelSetting.create!(
+#   [
+#     {
+#       level: 1,
+#       thresold: 100,
+#       character_id: 1,
+#     }
+#   ]
+# )
+ LevelSetting.create(:level => 1, :thresold => 100, :character_id => 1)
