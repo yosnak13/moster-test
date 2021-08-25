@@ -5,9 +5,6 @@ class CharactersController < ApplicationController
     @characters = Character.all
   end
 
-  def create
-  end
-
   def show
   end
 
