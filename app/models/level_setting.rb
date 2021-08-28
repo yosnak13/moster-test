@@ -1,5 +1,4 @@
 class LevelSetting < ApplicationRecord
-  belongs_to :character
 
   # def define_thresold
   #   thresold = LevelSetting.find(1)

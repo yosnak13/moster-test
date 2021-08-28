@@ -29,10 +29,8 @@ ActiveRecord::Schema.define(version: 2021_08_22_090328) do
   create_table "level_settings", force: :cascade do |t|
     t.integer "level", default: 1, null: false
     t.integer "thresold", default: 100, null: false
-    t.bigint "character_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["character_id"], name: "index_level_settings_on_character_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,5 +51,4 @@ ActiveRecord::Schema.define(version: 2021_08_22_090328) do
   end
 
   add_foreign_key "characters", "users"
-  add_foreign_key "level_settings", "characters"
 end
