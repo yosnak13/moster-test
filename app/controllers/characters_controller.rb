@@ -16,6 +16,7 @@ class CharactersController < ApplicationController
     if @character.update(post_params)
       @character.increment(:character_exp, @current_exp)
       @character.save
+      # binding.pry
       redirect_to character_path
     else
       redirect_to edit_character_path
