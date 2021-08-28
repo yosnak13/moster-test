@@ -1,5 +1,6 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: [:show, :edit, :update]
+  before_action :need_exp, only: [:show, :edit, :update]
 
   def index
     @characters = Character.all
@@ -16,7 +17,6 @@ class CharactersController < ApplicationController
     if @character.update(post_params)
       @character.increment(:character_exp, @current_exp)
       @character.save
-      # binding.pry
       redirect_to character_path
     else
       redirect_to edit_character_path
@@ -27,6 +27,11 @@ class CharactersController < ApplicationController
 
   def set_character
     @character = Character.find(params[:id])
+  end
+
+  def need_exp
+    @level_setting = LevelSetting.first
+    @needed_exp = @level_setting.thresold -  @character.character_exp
   end
 
   def post_params
