@@ -17,16 +17,14 @@ class CharactersController < ApplicationController
     @current_exp = @character.character_exp
     if @character.update(post_params)
       @character.increment(:character_exp, @current_exp)
-      @character.save
 
       totalExp = @character.character_exp
-      levelSetting = LevelSetting.find_by(level: @character.character_level + 1)
+      levelSetting = LevelSetting.find_by(level: @character.character_level)
 
       if levelSetting.thresold <= totalExp
-        @character.level += 1
-        @character.update(level: @character.level)
+        @character.character_level += 1
+        @character.update(character_level: @character.character_level)
         @character.save
-        binding.pry
       else
         @character.save
       end
@@ -44,7 +42,7 @@ class CharactersController < ApplicationController
   end
 
   def need_exp
-    @level_setting = LevelSetting.first
+    @level_setting = LevelSetting.find_by(level: @character.character_level)
     @needed_exp = @level_setting.thresold -  @character.character_exp
   end
 

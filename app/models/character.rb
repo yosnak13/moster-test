@@ -1,15 +1,17 @@
 class Character < ApplicationRecord
   belongs_to :user
 
-  # def level_up
-  #   @character = Character.find(params[:id])
-  #   totalExp = @character.character_exp
+  def level_up
+    totalExp = @character.character_exp
+    levelSetting = LevelSetting.find_by(level: @character.character_level)
 
-  #   levelSetting = LevelSetting.find_by(level: @character.character_level + 1)
-
-  #   if levelSetting.thresold <= totalExp
-  #     @character.level += 1
-  #     @character.update(level: @character.level)
-  #   end
-  # end
+    if levelSetting.thresold <= totalExp
+      @character.character_level += 1
+      @character.update(character_level: @character.character_level)
+      @character.save
+      binding.pry
+    else
+      @character.save
+    end
+  end
 end
