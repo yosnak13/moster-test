@@ -17,7 +17,7 @@ class CharactersController < ApplicationController
     @current_exp = @character.character_exp
     if @character.update(post_params)
       @character.increment(:character_exp, @current_exp)
-      @levelup = @character.level_up
+      @character.level_up
       redirect_to character_path
     else
       redirect_to edit_character_path
@@ -27,7 +27,7 @@ class CharactersController < ApplicationController
   private
 
   def set_character
-    @character = Character.find(:id)
+    @character = Character.find(params[:id])
   end
 
   def need_exp

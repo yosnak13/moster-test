@@ -2,7 +2,7 @@ class Character < ApplicationRecord
   belongs_to :user
 
   def level_up
-    @character = Character.find(params[:id])
+    @character = Character.find(1) #変更必要
     totalExp = @character.character_exp
     levelSetting = LevelSetting.find_by(level: @character.character_level)
 
@@ -10,7 +10,6 @@ class Character < ApplicationRecord
       @character.character_level += 1
       @character.update(character_level: @character.character_level)
       @character.save
-      binding.pry
     else
       @character.save
     end
