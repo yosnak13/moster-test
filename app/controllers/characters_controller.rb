@@ -17,6 +17,7 @@ class CharactersController < ApplicationController
     @current_exp = @character.character_exp
     if @character.update(post_params)
       @character.increment(:character_exp, @current_exp)
+      @character.save
       @character.level_up
       redirect_to character_path
     else
