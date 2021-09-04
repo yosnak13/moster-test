@@ -2,6 +2,6 @@
 <p>現在の経験値：<%= @character.character_exp %></p>
 <%= form_with(model: @character, local: true) do |f| %>
   <p>学習時間</p>
-  <%= f.number_field :character_exp, value: '10' %>分
-  <%= f.submit %>
+  <p><%= f.number_field :character_exp, value: '10' %>分</p>
+  <%= f.submit "送信" %>
 <% end %>
