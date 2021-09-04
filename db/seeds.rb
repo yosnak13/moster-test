@@ -31,3 +31,11 @@ Character.create!(
     }
   ]
 )
+
+require "csv"
+CSV.foreach('db/thresold2.csv', headers: true) do |row|
+  LevelSetting.create(
+    level: row[0],
+    thresold: row[1],
+  )
+end
