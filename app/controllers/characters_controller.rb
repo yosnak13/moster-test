@@ -19,6 +19,7 @@ class CharactersController < ApplicationController
       @character.increment(:character_exp, @current_exp)
       @character.save
       @character.level_up
+      # binding.pry
       redirect_to character_path
     else
       redirect_to edit_character_path
@@ -32,8 +33,8 @@ class CharactersController < ApplicationController
   end
 
   def need_exp
-    @level_setting = LevelSetting.find_by(level: @character.character_level)
-    @needed_exp = @level_setting.thresold -  @character.character_exp
+    @current_level = LevelSetting.find_by(level: @character.character_level)
+    @needed_exp = @current_level.thresold -  @character.character_exp
   end
 
   def post_params
