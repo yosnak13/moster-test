@@ -14,4 +14,13 @@ class Character < ApplicationRecord
       @character.save
     end
   end
+
+  def next_level #今のレベルから次のレベルまでに必要な経験値を計算したい
+    current_level = LevelSetting.find_by(level: @character.character_level)
+    current_thresold =
+  end
+
+  # for i in 1..levelSetting.id do #レベル
+  #   puts i
+  # end
 end
